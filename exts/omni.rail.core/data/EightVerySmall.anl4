@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<traxML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.trendverlag.com/Schema/traxML.xsd">
+	<Module id="1" name="" maxValidPlugID="0">
+		<Area xnear="-500m" xfar="500m" ynear="-300m" yfar="300m" znear="-100m" zfar="1000m"/>
+		<Map src="" nativeHorzRes="0" nativeVertRes="0">
+			<Rect left="0" top="0" right="0" bottom="0" name="DisplayImage"/>
+			<Rect left="0" top="0" right="0" bottom="0" name="MapImage"/>
+		</Map>
+		<Frame>
+			<Position x="0m" y="0m" z="0m"/>
+			<Vector dx="1" dy="0" dz="0"/>
+			<Vector dx="0" dy="1" dz="0"/>
+			<Vector dx="0" dy="0" dz="1"/>
+		</Frame>
+		<TrackSystem activeTrack="10">
+			<TrackCollection id="1">
+				<Frame>
+					<Position x="0m" y="0m" z="0m"/>
+					<Vector dx="1" dy="0" dz="0"/>
+					<Vector dx="0" dy="1" dz="0"/>
+					<Vector dx="0" dy="0" dz="1"/>
+				</Frame>
+				<Track id="1" type="standard" reference="\Gleisstile\Gleise\3DVersion\UIC60_Holzschwelle_Eisenbahnweichen.3dm" scale="1">
+					<Begin>
+						<Connection>
+							<TrackEnd refid="10" type="end"/>
+						</Connection>
+					</Begin>
+					<End>
+						<Connection>
+							<TrackEnd refid="8" type="end"/>
+						</Connection>
+					</End>
+					<Frame>
+						<Position x="-26.45m" y="5m" z="0.30m"/>
+						<Vector dx="0.245937794" dy="-0.969285607" dz="-6.31807069e-08"/>
+						<Vector dx="0.969285607" dy="0.245937794" dz="3.32895098e-08"/>
+						<Vector dx="-1.67285208e-08" dy="-6.94273012e-08" dz="1"/>
+					</Frame>
+					<Interval near="0m" far="16.61m"/>
+					<Curve>
+						<Cubic>
+							<Position x="0m" y="0m" z="0m"/>
+							<Vector dx="15.54m" dy="0m" dz="0m"/>
+							<Vector dx="-9.09m" dy="23.75m" dz="0m"/>
+							<Vector dx="2.15m" dy="-10.82m" dz="-0m"/>
+						</Cubic>
+					</Curve>
+					<Twist>
+						<CombinedTwist>
+							<Twist>
+								<DirectionalTwist>
+									<Vector dx="0" dy="0" dz="1"/>
+								</DirectionalTwist>
+							</Twist>
+							<Twist>
+								<LinearTwist startangle="-0.174532905" endangle="0"/>
+							</Twist>
+						</CombinedTwist>
+					</Twist>
+					<Section type="vignol_UIC60"/>
+				</Track>
+				<Track id="3" type="standard" reference="\Gleisstile\Gleise\3DVersion\UIC60_Holzschwelle_Eisenbahnweichen.3dm" scale="1">
+					<Begin>
+						<Connection>
+							<TrackEnd refid="8" type="front"/>
+						</Connection>
+					</Begin>
+					<End>
+						<Connection>
+							<TrackEnd refid="4" type="front"/>
+						</Connection>
+					</End>
+					<Frame>
+						<Position x="2.60m" y="-0.15m" z="0.30m"/>
+						<Vector dx="1" dy="0" dz="0"/>
+						<Vector dx="0" dy="1" dz="0"/>
+						<Vector dx="0" dy="0" dz="1"/>
+					</Frame>
+					<Interval near="0m" far="9.10m"/>
+					<Curve>
+						<Line>
+							<VectorBundle>
+								<Position x="0m" y="0m" z="0m"/>
+								<Vector dx="1" dy="0" dz="0"/>
+							</VectorBundle>
+							<Vector dx="0" dy="0" dz="1"/>
+						</Line>
+					</Curve>
+					<Twist>
+						<CombinedTwist>
+							<Twist>
+								<DirectionalTwist>
+									<Vector dx="0" dy="0" dz="1"/>
+								</DirectionalTwist>
+							</Twist>
+							<Twist>
+								<LinearTwist startangle="0" endangle="0"/>
+							</Twist>
+						</CombinedTwist>
+					</Twist>
+					<Section type="vignol_UIC60"/>
+				</Track>
+				<Track id="4" type="standard" reference="\Gleisstile\Gleise\3DVersion\UIC60_Holzschwelle_Eisenbahnweichen.3dm" scale="1">
+					<Begin>
+						<Connection>
+							<TrackEnd refid="3" type="end"/>
+						</Connection>
+					</Begin>
+					<End>
+						<Connection>
+							<TrackEnd refid="9" type="front"/>
+						</Connection>
+					</End>
+					<Frame>
+						<Position x="11.70m" y="-8.45m" z="0.30m"/>
+						<Vector dx="-1.77635705e-15" dy="1" dz="8.74227766e-08"/>
+						<Vector dx="-0.999999881" dy="-3.18495209e-15" dz="2.98023206e-08"/>
+						<Vector dx="2.98023206e-08" dy="-8.74227766e-08" dz="0.999999881"/>
+					</Frame>
+					<Interval near="0m" far="39.30m"/>
+					<Curve>
+						<Helix a="8.30m" b="-1.06m">
+							<VectorBundle2>
+								<Position x="0m" y="0m" z="0m"/>
+								<Vector dx="1" dy="0" dz="0"/>
+								<Vector dx="0" dy="-1" dz="0"/>
+							</VectorBundle2>
+						</Helix>
+					</Curve>
+					<Twist>
+						<CombinedTwist>
+							<Twist>
+								<DirectionalTwist>
+									<Vector dx="0" dy="0" dz="1"/>
+								</DirectionalTwist>
+							</Twist>
+							<Twist>
+								<LinearTwist startangle="0" endangle="0"/>
+							</Twist>
+						</CombinedTwist>
+					</Twist>
+					<Section type="vignol_UIC60"/>
+				</Track>
+				<Track id="8" type="standard" reference="\Gleisstile\Gleise\3DVersion\UIC60_Holzschwelle_Eisenbahnweichen.3dm" scale="1">
+					<Begin>
+						<Connection>
+							<TrackEnd refid="3" type="front"/>
+						</Connection>
+					</Begin>
+					<End>
+						<Connection>
+							<TrackEnd refid="1" type="end"/>
+						</Connection>
+					</End>
+					<Frame>
+						<Position x="2.60m" y="-0.15m" z="0.30m"/>
+						<Vector dx="-1" dy="-8.74227766e-08" dz="0"/>
+						<Vector dx="8.74227766e-08" dy="-1" dz="0"/>
+						<Vector dx="0" dy="0" dz="1"/>
+					</Frame>
+					<Interval near="0m" far="14.39m"/>
+					<Curve>
+						<Line>
+							<VectorBundle>
+								<Position x="0m" y="0m" z="0m"/>
+								<Vector dx="1" dy="0" dz="0"/>
+							</VectorBundle>
+							<Vector dx="0" dy="0" dz="1"/>
+						</Line>
+					</Curve>
+					<Twist>
+						<CombinedTwist>
+							<Twist>
+								<DirectionalTwist>
+									<Vector dx="0" dy="0" dz="1"/>
+								</DirectionalTwist>
+							</Twist>
+							<Twist>
+								<LinearTwist startangle="0" endangle="0"/>
+							</Twist>
+						</CombinedTwist>
+					</Twist>
+					<Section type="vignol_UIC60"/>
+				</Track>
+				<Track id="9" type="standard" reference="\Gleisstile\Gleise\3DVersion\UIC60_Holzschwelle_Eisenbahnweichen.3dm" scale="1">
+					<Begin>
+						<Connection>
+							<TrackEnd refid="4" type="end"/>
+						</Connection>
+					</Begin>
+					<End>
+						<Connection>
+							<TrackEnd refid="10" type="front"/>
+						</Connection>
+					</End>
+					<Frame>
+						<Position x="3.40m" y="-8.56m" z="5.30m"/>
+						<Vector dx="-0.0132571599" dy="0.999912083" dz="8.74151027e-08"/>
+						<Vector dx="-0.999912083" dy="-0.0132571599" dz="-1.15899501e-09"/>
+						<Vector dx="-2.13162804e-14" dy="-8.74227766e-08" dz="1"/>
+					</Frame>
+					<Interval near="0m" far="19.31m"/>
+					<Curve>
+						<Arc>
+							<VectorBundle2>
+								<Position x="0m" y="-1233.29m" z="0m"/>
+								<Vector dx="1" dy="0" dz="0"/>
+								<Vector dx="0" dy="-1233.29004" dz="0"/>
+							</VectorBundle2>
+						</Arc>
+					</Curve>
+					<Twist>
+						<CombinedTwist>
+							<Twist>
+								<DirectionalTwist>
+									<Vector dx="0" dy="0" dz="1"/>
+								</DirectionalTwist>
+							</Twist>
+							<Twist>
+								<LinearTwist startangle="0" endangle="0"/>
+							</Twist>
+						</CombinedTwist>
+					</Twist>
+					<Section type="vignol_UIC60"/>
+				</Track>
+				<Track id="10" type="standard" reference="\Gleisstile\Gleise\3DVersion\UIC60_Holzschwelle_Eisenbahnweichen.3dm" scale="1">
+					<Begin>
+						<Connection>
+							<TrackEnd refid="9" type="end"/>
+						</Connection>
+					</Begin>
+					<End>
+						<Connection>
+							<TrackEnd refid="1" type="front"/>
+						</Connection>
+					</End>
+					<Frame>
+						<Position x="-12.14m" y="10.79m" z="5.30m"/>
+						<Vector dx="0.999997079" dy="-0.002398076" dz="1.19209304e-07"/>
+						<Vector dx="0.002398076" dy="0.999997318" dz="1.11758702e-07"/>
+						<Vector dx="-1.19485804e-07" dy="-1.11758702e-07" dz="1"/>
+					</Frame>
+					<Interval near="0m" far="54.68m"/>
+					<Curve>
+						<Helix a="15.43m" b="-1.42m">
+							<VectorBundle2>
+								<Position x="0m" y="0m" z="0m"/>
+								<Vector dx="1" dy="0" dz="0"/>
+								<Vector dx="0" dy="1" dz="0"/>
+							</VectorBundle2>
+						</Helix>
+					</Curve>
+					<Twist>
+						<CombinedTwist>
+							<Twist>
+								<DirectionalTwist>
+									<Vector dx="0" dy="0" dz="1"/>
+								</DirectionalTwist>
+							</Twist>
+							<Twist>
+								<LinearTwist startangle="0" endangle="-0.174532905"/>
+							</Twist>
+						</CombinedTwist>
+					</Twist>
+					<Section type="vignol_UIC60"/>
+				</Track>
+			</TrackCollection>
+			<TrackCollection id="2">
+				<Frame>
+					<Position x="0m" y="0m" z="0m"/>
+					<Vector dx="1" dy="0" dz="0"/>
+					<Vector dx="0" dy="1" dz="0"/>
+					<Vector dx="0" dy="0" dz="1"/>
+				</Frame>
+			</TrackCollection>
+			<TrackCollection id="3">
+				<Frame>
+					<Position x="0m" y="0m" z="0m"/>
+					<Vector dx="1" dy="0" dz="0"/>
+					<Vector dx="0" dy="1" dz="0"/>
+					<Vector dx="0" dy="0" dz="1"/>
+				</Frame>
+			</TrackCollection>
+			<TrackCollection id="4">
+				<Frame>
+					<Position x="0m" y="0m" z="0m"/>
+					<Vector dx="1" dy="0" dz="0"/>
+					<Vector dx="0" dy="1" dz="0"/>
+					<Vector dx="0" dy="0" dz="1"/>
+				</Frame>
+			</TrackCollection>
+			<TrackCollection id="5">
+				<Frame>
+					<Position x="0m" y="0m" z="0m"/>
+					<Vector dx="1" dy="0" dz="0"/>
+					<Vector dx="0" dy="1" dz="0"/>
+					<Vector dx="0" dy="0" dz="1"/>
+				</Frame>
+			</TrackCollection>
+			<TrackCollection id="6">
+				<Frame>
+					<Position x="0m" y="0m" z="0m"/>
+					<Vector dx="1" dy="0" dz="0"/>
+					<Vector dx="0" dy="1" dz="0"/>
+					<Vector dx="0" dy="0" dz="1"/>
+				</Frame>
+			</TrackCollection>
+			<ConnectorCollection/>
+		</TrackSystem>
+		<Batch/>
+		<Fleet/>
+		<SignalCollection/>
+		<IndicatorCollection/>
+		<PulseCounterCollection/>
+		<TimerCollection/>
+		<StructureCollection/>
+		<CameraCollection userCameraType="firstperson" userStartCamera="1">
+			<Camera name="PlayerCamera" id="1" type="basic">
+				<Frame>
+					<Position x="-21.88m" y="-90.94m" z="28.17m"/>
+					<Vector dx="0.119580604" dy="0.953241646" dz="-0.277544439"/>
+					<Vector dx="-0.992223322" dy="0.124470681" dz="-9.97237706e-08"/>
+					<Vector dx="0.0345460474" dy="0.275386065" dz="0.96071291"/>
+				</Frame>
+			</Camera>
+		</CameraCollection>
+		<Terrain>
+			<Weather>
+				<Global bSun="true" bMoon="false" bStars="false" rain="0" snow="0" clouds="70" wind="10" fog="10"/>
+			</Weather>
+		</Terrain>
+	</Module>
+</traxML>

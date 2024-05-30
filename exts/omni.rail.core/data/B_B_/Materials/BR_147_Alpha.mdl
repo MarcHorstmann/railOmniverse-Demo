@@ -1,0 +1,52 @@
+﻿mdl 1.6;
+
+import ::math::*;
+import ::state::*;
+import ::tex::*;
+import ::anno::*;
+using .::OmniUe4Function import *;
+using .::OmniUe4Translucent import *;
+
+export annotation sampler_color();
+export annotation sampler_normal();
+export annotation sampler_grayscale();
+export annotation sampler_alpha();
+export annotation sampler_masks();
+export annotation sampler_distancefield();
+export annotation dither_masked_off();
+export annotation world_space_normal();
+
+export material BR_147_Alpha(
+)
+ = 
+	let {
+	float3 WorldPositionOffset_mdl = float3(0.0,0.0,0.0);
+
+
+	float3 Normal_mdl = float3(0.0,0.0,1.0);
+
+	float Local0 = ::fresnel_function(::vertex_normal_world_space(true), ::camera_vector(true), false, 2.0, false, 0.0, 1.0, true);
+	float Local1 = math::lerp(0.02,0.3,Local0);
+
+	float3 EmissiveColor_mdl = float3(0.0,0.0,0.0);
+	float Opacity_mdl = Local1;
+	float OpacityMask_mdl = (math::saturate(Local1) - 1.0f / 255.0f) < 0.0f ? 0.0f : 1.0f;
+	float3 BaseColor_mdl = float3(1.0,1.0,1.0);
+	float Metallic_mdl = 1.0;
+	float Specular_mdl = 0.5;
+	float Roughness_mdl = 0.0;
+	float2 Refraction_mdl = float2(1.0,1.0);
+
+	} in
+		::OmniUe4Translucent(
+			base_color: BaseColor_mdl,
+			metallic: Metallic_mdl,
+			roughness: Roughness_mdl,
+			specular: Specular_mdl,
+			normal: Normal_mdl,
+			opacity: Opacity_mdl,
+			opacity_mask: OpacityMask_mdl,
+			emissive_color: EmissiveColor_mdl,
+			displacement: WorldPositionOffset_mdl,
+			refraction: Refraction_mdl.x,
+			two_sided: false);

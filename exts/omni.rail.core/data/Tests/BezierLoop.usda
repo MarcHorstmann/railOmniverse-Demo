@@ -1,0 +1,206 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (322.4129560967386, -5.050938171806539, 26.239007083729735)
+                double3 target = (-134.1704414630945, -164.9330037833185, -75.71837781504193)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 5)
+                double radius = 5
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary metricsAssembler = {
+            dictionary "/World/TRAXX147" = {
+                string write_layer = "metrics:UnitsAdjust-85919031eb367612911f3fd7b56e77b5.metricsAssembler"
+            }
+            int version = 1
+        }
+        dictionary navmeshSettings = {
+            double agentHeight = 180
+            double agentRadius = 20
+            bool excludeRigidBodies = 1
+            int ver = 1
+            double voxelCeiling = 460
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./BezierLoop.usda"
+            dictionary locked = {
+            }
+            dictionary muteness = {
+            }
+        }
+        dictionary physicsSettings = {
+            bool "/physics/mouseGrabIgnoreInvisible" = 0
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            float3 "rtx:index:regionOfInterestMax" = (0, 0, 0)
+            float3 "rtx:index:regionOfInterestMin" = (0, 0, 0)
+            float3 "rtx:iray:environment_dome_ground_position" = (0, 0, 0)
+            float3 "rtx:iray:environment_dome_ground_reflectivity" = (0, 0, 0)
+            float3 "rtx:iray:environment_dome_rotation_axis" = (3.4028235e38, 3.4028235e38, 3.4028235e38)
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+            double "rtx:translucency:worldEps" = 0.005
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 1
+    startTimeCode = 0
+    subLayers = [
+        @metrics:UnitsAdjust-85919031eb367612911f3fd7b56e77b5.metricsAssembler@
+    ]
+    timeCodesPerSecond = 60
+    upAxis = "Z"
+)
+
+over "Render" (
+    hide_in_stage_window = true
+)
+{
+}
+
+def Xform "World"
+{
+    def TSTrackSystem "TrackSystem"
+    {
+        def TSTrackCollection "TrackCollection"
+        {
+            def TSTrack "Track"
+            {
+                rel curve = </World/TrackSystem/TrackCollection/Track/BasisCurves>
+                rel endConnection = </World/TrackSystem/TrackCollection/Track>
+                token endConnectionEndType = "front"
+                rel frontConnection = </World/TrackSystem/TrackCollection/Track>
+                token frontConnectionEndType = "end"
+
+                def BasisCurves "BasisCurves" (
+                    active = true
+                    delete apiSchemas = ["OmniSceneVisualizationAPI"]
+                )
+                {
+                    uniform token basis = "bezier"
+                    int[] curveVertexCounts = [21]
+                    float3[] extent = [(-18.40191, -26.392578, -0.12500075), (26.552774, 24.727072, 0.12500386)]
+                    point3f[] points = [(-15.129971, -11.438576, 0), (-15.6543045, -6.6107464, 0), (-18.27691, -1.1253848, 0), (-16.807838, 4.010479, 0), (-14.831969, 10.918098, 0), (-11.785049, 17.247734, 0), (-6.5841484, 20.213764, 0), (-0.5622635, 23.647995, 0), (7.644219, 24.602072, -7.397297e-7), (13.481815, 22.227406, 0), (19.343153, 19.843082, 7.4273817e-7), (24.63357, 14.151115, 0.0000037885147), (25.339039, 8.155724, 0.0000038146973), (26.427774, -1.0968504, 0.0000038551043), (24.458504, -12.76263, 9.100358e-7), (18.041298, -20.757626, 0), (13.708145, -26.156164, -6.144924e-7), (5.6786823, -23.647385, 0), (0.0558815, -24.957481, 0), (-5.5669193, -26.267578, 0), (-14.605637, -16.266405, 0)]
+                    uniform token purpose = "default"
+                    uniform token type = "cubic"
+                    token visibility = "inherited"
+                    float[] widths = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]
+                    uniform token wrap = "periodic"
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (10, 10, 10)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+            }
+        }
+    }
+
+    def "TRAXX147" (
+        prepend payload = @../B_B_/TRAXX147.usda@
+    )
+    {
+        quatf xformOp:orient = (0.72106177, 0, 0, 0.6928708)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+        double3 xformOp:translate = (255.30387989693682, 2.4335302500001523, -0.33064991024500534)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+        over "TRAXX_147"
+        {
+            over "WheelFrameNorth"
+            {
+                over "WheelFrame"
+                {
+                    string physics:targetVelocity = "60km/h"
+
+                    over "trackJoint"
+                    {
+                        rel physics:trackSystem = </World/TrackSystem>
+                    }
+                }
+            }
+
+            over "WheelFrameSouth"
+            {
+                over "WheelFrame"
+                {
+                    string physics:targetVelocity = "60km/h"
+                    float physics:thrust = 0.7
+
+                    over "trackJoint"
+                    {
+                        rel physics:trackSystem = </World/TrackSystem>
+                    }
+                }
+            }
+
+            over "BogieBase"
+            {
+            }
+        }
+    }
+}
+
+def Xform "Environment"
+{
+    quatd xformOp:orient = (1, 0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def DomeLight "DomeLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 1000
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
+        token inputs:texture:format = "latlong"
+        quatd xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

@@ -1,0 +1,25 @@
+[core]
+reloadable = false
+# Load at the start, load all schemas with order -100 (with order -1000 the USD libs are loaded)
+order = -150
+
+[package]
+version = "0.12.0"
+title = "railOmniverse Schema"
+description="USD format schema definitions for railOmniverse"
+toggleable = false
+authors = ["Trend Redaktions- und Verlagsgesellschaft mbH <horstmann.marc@trendverlag.de>"]
+category = "simulation"
+repository="https://github.com/MarcHorstmann/railOmniverse-Demo.git"
+readme  = "docs/README.md"
+keywords = ["simulation", "physics", "rail", "track", "train"]
+changelog = "docs/CHANGELOG.md"
+preview_image = "data/Thumbnail.jpg"
+icon = "data/PhysXlogo.png"
+
+[dependencies]
+"omni.usd.libs" = {}
+"omni.usd.schema.physics" = {}
+
+[[python.module]]
+name = "usd.schema.rail.core"

@@ -1,0 +1,270 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (50750.000000000015, 0, 0)
+                double radius = 500
+            }
+            dictionary Perspective = {
+                double3 position = (-189.2327327811803, 3340.650408146593, 739.287483368691)
+                double3 target = (-197.60340800346964, 566.488353989565, 445.5107165973635)
+            }
+            dictionary Right = {
+                double3 position = (0, -50750, 0)
+                double radius = 500
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 50512.5)
+                double radius = 500
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./Tram.usda"
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            float3 "rtx:index:regionOfInterestMax" = (0, 0, 0)
+            float3 "rtx:index:regionOfInterestMin" = (0, 0, 0)
+            float3 "rtx:iray:environment_dome_ground_position" = (0, 0, 0)
+            float3 "rtx:iray:environment_dome_ground_reflectivity" = (0, 0, 0)
+            float3 "rtx:iray:environment_dome_rotation_axis" = (3.4028235e38, 3.4028235e38, 3.4028235e38)
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def PhysicsScene "physicsScene"
+    {
+        vector3f physics:gravityDirection = (0, 0, -1)
+        float physics:gravityMagnitude = 981
+    }
+
+    def Mesh "groundPlane" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCookedDataAPI:triangleMesh"]
+    )
+    {
+        uniform bool doubleSided = 0
+        int[] faceVertexCounts = [4]
+        int[] faceVertexIndices = [0, 1, 2, 3]
+        normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1)]
+        uchar[] physxCookedData:triangleMesh:buffer = [7, 199, 196, 226, 132, 250, 121, 242, 67, 76, 218, 222, 197, 146, 114, 24, 228, 78, 88, 83, 1, 77, 69, 83, 72, 16, 0, 0, 0, 1, 0, 0, 0, 182, 1, 0, 0, 4, 0, 0, 0, 2, 0, 0, 0, 0, 128, 59, 196, 0, 128, 59, 196, 0, 0, 0, 0, 0, 128, 59, 68, 0, 128, 59, 196, 0, 0, 0, 0, 0, 128, 59, 68, 0, 128, 59, 68, 0, 0, 0, 0, 0, 128, 59, 196, 0, 128, 59, 68, 0, 0, 0, 0, 0, 1, 2, 0, 2, 3, 1, 0, 0, 0, 0, 1, 255, 255, 255, 255, 255, 255, 255, 255, 1, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 66, 86, 52, 32, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 149, 132, 68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 59, 57, 0, 128, 59, 196, 0, 128, 59, 196, 0, 0, 0, 0, 0, 128, 59, 68, 0, 128, 59, 68, 0, 0, 0, 0, 2, 0, 0, 0, 24, 48, 0, 1, 2, 0, 2, 3, 255, 255, 255, 255, 255, 255, 255, 255, 1, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 66, 86, 51, 50, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 149, 132, 68, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 5, 0, 0, 0, 0, 128, 59, 196, 0, 128, 59, 196, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 59, 68, 0, 128, 59, 68, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]
+        point3f[] points = [(-750, -750, 0), (750, -750, 0), (750, 750, 0), (-750, 750, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.5, 0.5)]
+        texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+            interpolation = "varying"
+        )
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Bogie0" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        vector3f physics:angularVelocity = (0, 0, 0)
+        color3f[] primvars:displayColor = [(0.2784314, 0.4117647, 1)]
+        double size = 100
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (2, 1, 1)
+        double3 xformOp:translate = (-500, -50, 100)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def PhysicsTrackJoint "trackJoint"
+        {
+            rel physics:body0 = </World/Bogie0>
+            bool physics:collisionEnabled = 0
+            bool physics:jointEnabled = 1
+            point3f physics:localPos0 = (0, 0, -70)
+            point3f physics:localPos1 = (0, 0, 0)
+            string physics:motorForceLimitsMax = "+100kN"
+            string physics:motorForceLimitsMin = "-100kN"
+            string physics:motorTargetVelocity = "20m/s"
+            string physics:thresholdPosition = "40cm"
+            string physics:trackSystemFile = "/data/TestTrackSystem.anl4"
+        }
+
+        def PhysicsRevoluteJoint "RevoluteJoint2"
+        {
+            uniform token physics:axis = "Z"
+            prepend rel physics:body0 = </World/Waggon2>
+            rel physics:body1 = </World/Bogie0>
+            float physics:breakForce = inf
+            float physics:breakTorque = inf
+            bool physics:jointEnabled = 1
+            point3f physics:localPos0 = (48, 0, -120)
+            point3f physics:localPos1 = (-20, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsRevoluteJoint "RevoluteJoint1"
+        {
+            uniform token physics:axis = "Z"
+            rel physics:body0 = </World/Waggon1>
+            rel physics:body1 = </World/Bogie0>
+            float physics:breakForce = inf
+            float physics:breakTorque = inf
+            bool physics:jointEnabled = 1
+            point3f physics:localPos0 = (-44, 0, -120)
+            point3f physics:localPos1 = (40, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+    }
+
+    def Cube "Bogie1" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        color3f[] primvars:displayColor = [(0.2784314, 0.4117647, 0.3)]
+        double size = 100
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (2, 1, 1)
+        double3 xformOp:translate = (420, -50, 100)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def PhysicsRevoluteJoint "RevoluteJoint"
+        {
+            uniform token physics:axis = "Z"
+            rel physics:body0 = </World/Waggon1>
+            rel physics:body1 = </World/Bogie1>
+            float physics:breakForce = inf
+            float physics:breakTorque = inf
+            point3f physics:localPos0 = (40, 0, -120)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsTrackJoint "trackJoint"
+        {
+            rel physics:body0 = </World/Bogie1>
+            bool physics:collisionEnabled = 0
+            point3f physics:localPos0 = (0, 0, -70)
+            point3f physics:localPos1 = (0, 0, 0)
+            string physics:thresholdPosition = "40cm"
+            string physics:trackSystemFile = "/data/TestTrackSystem.anl4"
+        }
+    }
+
+    def Cube "Waggon1" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        color3f[] primvars:displayColor = [(0.2784314, 0.4117647, 0.3)]
+        double size = 100
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (10, 1, 1)
+        double3 xformOp:translate = (20, -50, 220)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Waggon2" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        color3f[] primvars:displayColor = [(0.2784314, 0.4117647, 0.3)]
+        double size = 100
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (10, 1, 1)
+        double3 xformOp:translate = (-1020, -50, 220)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Bogie2" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        color3f[] primvars:displayColor = [(0.2784314, 0.4117647, 0.3)]
+        double size = 100
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (2, 1, 1)
+        double3 xformOp:translate = (-1420, -50, 100)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def PhysicsRevoluteJoint "RevoluteJoint"
+        {
+            uniform token physics:axis = "Z"
+            rel physics:body0 = </World/Waggon2>
+            rel physics:body1 = </World/Bogie2>
+            float physics:breakForce = inf
+            float physics:breakTorque = inf
+            point3f physics:localPos0 = (-40, 0, -120)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsTrackJoint "trackJoint"
+        {
+            rel physics:body0 = </World/Bogie2>
+            bool physics:collisionEnabled = 0
+            point3f physics:localPos0 = (0, 0, -70)
+            point3f physics:localPos1 = (0, 0, 0)
+            string physics:thresholdPosition = "40cm"
+            string physics:trackSystemFile = "/data/TestTrackSystem.anl4"
+        }
+    }
+
+    def DomeLight "DomeLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 1000
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
+        token inputs:texture:format = "latlong"
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+}
+

@@ -1,0 +1,720 @@
+#usda 1.0
+(
+    "WARNING: THIS FILE IS GENERATED.  DO NOT EDIT."
+)
+
+class PhysicsTrackJoint "PhysicsTrackJoint"
+(
+    doc = """A custom joint for the PhysX engine that keeps a wheel frame on a track."""
+
+    inherits = </PhysicsJoint>
+) {	
+    rel physics:body0 (
+        customData = {
+            string apiName = "body0"
+        }
+        displayName = "Body 0"
+        doc = """Relationship to any UsdGeomXformable."""
+    )
+
+    float physics:breakForce = inf (
+        displayName = "Break Force"
+        doc = """Joint break force. If set, joint is to break when this force
+        limit is reached. (Used for linear dofs.) 
+        Units: mass * distance / time / time"""
+    )
+    float physics:breakTorque = inf (
+        displayName = "Break Torque"
+        doc = """Joint break torque. If set, joint is to break when this torque
+        limit is reached. (Used for angular dofs.) 
+        Units: mass * distance * distance / time / time"""
+    )
+    bool physics:collisionEnabled = 0 (
+        displayName = "Collision Enabled"
+        doc = "Determines if the jointed subtrees should collide or not."
+    )
+    uniform bool physics:excludeFromArticulation = 0 (
+        displayName = "Exclude From Articulation"
+        doc = "Determines if the joint can be included in an Articulation."
+    )
+    bool physics:jointEnabled = 1 (
+        displayName = "Joint Enabled"
+        doc = "Determines if the joint is enabled."
+    )
+    point3f physics:localPos0 = (0, 0, 0) (
+        displayName = "Local Position 0"
+        doc = "Relative position of the joint frame to body0's frame."
+    )
+    point3f physics:localPos1 = (0, 0, 0) (
+        displayName = "Local Position 1"
+        doc = "Relative position of the joint frame to body1's frame."
+    )
+    quatf physics:localRot0 = (1, 0, 0, 0) (
+        displayName = "Local Rotation 0"
+        doc = "Relative orientation of the joint frame to body0's frame."
+    )
+    quatf physics:localRot1 = (1, 0, 0, 0) (
+        displayName = "Local Rotation 1"
+        doc = "Relative orientation of the joint frame to body1's frame."
+    )
+
+    string physics:normalForceLimitsMin = "-inf" (
+        displayName = "Force Limit Normal Min"
+        doc = """Minimum force to be applied along the direction 
+		orthogonal to the track. Overrides physics:breakForce if authored.
+        Range: [-inf,0kN]
+		Dimension: mass * distance / time / time
+        Default Units: kN"""
+    )
+
+    string physics:normalForceLimitsMax = "+inf" (
+        displayName = "Force Limit Normal Max"
+        doc = """Maximum force to be applied along the direction 
+		orthogonal to the track. Overrides physics:breakForce if authored.
+        Range: [0kN,+inf]
+		Dimension: mass * distance / time / time
+        Default Units: kN"""
+    )
+
+    string physics:normalTorqueLimit = "+inf" (
+        displayName = "Torque Limit along Normal"
+        doc = """Maximum torque to be applied along the direction orthogonal 
+		to the track. Overrides physics:breakTorque if authored.
+        Range: [0kNm,+inf]
+		Dimension: mass * distance * distance / time / time
+        Default Units: kNm"""
+    )
+
+    string physics:binormalForceLimitsMin = "0kN" (
+        displayName = "Force Limit Binormal Min"
+        doc = """Minimum force to be applied along the direction 
+		perpendicular to the track. Overrides physics:breakForce if authored.
+        Range: [-inf,0kN]
+		Dimension: mass * distance / time / time
+        Default Units: kN"""
+    )
+
+    string physics:binormalForceLimitsMax = "+inf" (
+        displayName = "Force Limit Binormal Max"
+        doc = """Maximum force to be applied along the direction 
+		perpendicular to the track. Overrides physics:breakForce if authored.
+        Range: [0kN,+inf]
+		Dimension: mass * distance / time / time
+        Default Units: kN"""
+    )
+
+    string physics:torqueLimit = "+inf" (
+        displayName = "Torque Limit along Tangent and Binormal"
+        doc = """Maximum torque to be applied along the direction along as 
+		well as perpendicular to the track. Overrides physics:breakForce if 
+		authored.
+        Range: [0kNm,+inf]
+		Dimension: mass * distance * distance / time / time
+        Default Units: kNm"""
+    )
+
+    string physics:motorForceLimitsMin = "0kN" (
+        displayName = "Force Limit Motor Min"
+        doc = """Minimum and maximum force to be applied by the motor to 
+		reach the target velocity.
+        Range: [-inf,0kN]
+		Dimension: mass * distance / time / time
+        Default Units: kN"""
+    )
+
+    string physics:motorForceLimitsMax = "0kN" (
+        displayName = "Force Limit Motor Max"
+        doc = """Minimum and maximum force to be applied by the motor to 
+		reach the target velocity.
+        Range: [0kN,+inf]
+		Dimension: mass * distance / time / time
+        Default Units: kN"""
+    )
+
+    string physics:motorTargetVelocity = "0m/s" (
+        displayName = "Target Velocity"
+        doc = """The target velocity along the track a motor aims for.
+        Range: [-inf,+inf]
+		Dimension: distance / time
+        Default Units: km/h"""
+    )
+
+    string physics:thresholdPosition = "35cm" (
+        displayName = "Threshold for Position"
+        doc = """A positional error in the alignemt of the anchor to 
+		the track that would lead to derailment.
+        Range: ]0m,+inf]
+        Dimension: distance
+        Default Units: m"""
+    )
+
+    float physics:thresholdTangent = 45 (
+        displayName = "Threshold for Tangent"
+        doc = """A rotational error in the alignemt of the anchor to 
+		the track that would lead to derailment.
+        Range: ]0,90]
+        Dimension: One
+		Units: degree"""
+    )
+
+	float physics:thresholdNormal = 45 (
+        displayName = "Threshold for Normal"
+        doc = """A rotational error in the alignemt of the anchor to 
+		the track that would lead to derailment.
+        Range: ]0,90]
+        Dimension: One
+		Units: degree"""
+    )
+
+    float physics:thresholdBinormal = 45 (
+        displayName = "Threshold for Binormal"
+        doc = """A rotational error in the alignemt of the anchor to 
+		the track that would lead to derailment.
+        Range: ]0,90]
+        Dimension: One
+		Units: degree"""
+    )
+
+    string physics:flange = "+inf" (
+        displayName = "Flange"
+        doc = """The hight of the wheels flange, if any.
+        Range: [0m,+inf]
+		Dimension: distance
+		Default Units: m"""
+    )
+
+	rel physics:trackSystem(
+        displayName = "Track System"
+        doc = """Reference to a track system to rail the trackjoint on. 
+        A track system is a prim that contains any 'TSTrack' prims."""
+    )
+	
+    rel proxyPrim (
+        doc = '''The proxyPrim relationship allows us to link a
+        prim whose purpose is "render" to its (single target)
+        purpose="proxy" prim.  This is entirely optional, but can be
+        useful in several scenarios:
+        
+        - In a pipeline that does pruning (for complexity management)
+        by deactivating prims composed from asset references, when we
+        deactivate a purpose="render" prim, we will be able to discover
+        and additionally deactivate its associated purpose="proxy" prim,
+        so that preview renders reflect the pruning accurately.
+        
+        - DCC importers may be able to make more aggressive optimizations
+        for interactive processing and display if they can discover the proxy
+        for a given render prim.
+        
+        - With a little more work, a Hydra-based application will be able
+        to map a picked proxy prim back to its render geometry for selection.
+
+        \\note It is only valid to author the proxyPrim relationship on
+        prims whose purpose is "render".'''
+    )
+    uniform token purpose = "default" (
+        allowedTokens = ["default", "render", "proxy", "guide"]
+        doc = """Purpose is a classification of geometry into categories that 
+        can each be independently included or excluded from traversals of prims 
+        on a stage, such as rendering or bounding-box computation traversals.
+
+        See for more detail about how 
+        purpose is computed and used."""
+    )
+    token visibility = "inherited" (
+        allowedTokens = ["inherited", "invisible"]
+        doc = '''Visibility is meant to be the simplest form of "pruning" 
+        visibility that is supported by most DCC apps.  Visibility is 
+        animatable, allowing a sub-tree of geometry to be present for some 
+        segment of a shot, and absent from others; unlike the action of 
+        deactivating geometry prims, invisible geometry is still 
+        available for inspection, for positioning, for defining volumes, etc.'''
+    )
+}
+
+class PhysicsTractionForceCharacteristic "PhysicsTractionForceCharacteristic" (
+    doc = """Function that defines the characteristic behaviour of a engine-gear unit
+    to change its maximum available traction force with velocity."""
+)
+{
+    float2[] physics:speedSteps (
+        displayName = "Speed Steps"
+        doc = """List of speed steps in the charactersitic.
+        Range: ([0,+inf], [0,1])
+        Dimension: (distance / time, One)
+        Default Units: (cm/s,1)"""
+    )
+}
+
+class PhysicsWheelset "PhysicsWheelset" (
+    doc = """A wheelset is an axle with two wheels attached to it. The PhysicsWheelset child prim
+    adds to it's parent's PhysicsWheelFrame motor forces."""
+)
+{
+    string physics:frictionTorque = "0kNm" (
+        displayName = "Friction Torque"
+        doc = """Friction that is introduced by this wheel.
+        Range: [0kNm,+inf]
+        Dimension: mass * distance * distance / time / time
+        Default Units: kNm"""
+    )
+    string physics:maxBrakingTorque = "0kNm" (
+        displayName = "Maximum Braking Torque"
+        doc = """Maximum braking torque that this wheelset can apply.
+        Range: [0kNm,+inf]
+        Dimension: mass * distance * distance / time / time
+        Default Units: kNm"""
+    )
+    string physics:maxMotorTorque = "0kNm" (
+        displayName = "Maximum Motor Torque"
+        doc = """Maximum torque that this wheelset can apply for acceleration.
+        Range: [0kNm,+inf]
+        Dimension: mass * distance * distance / time / time
+        Default Units: kNm"""
+    )
+    string physics:radius = "50cm" (
+        displayName = "Radius"
+        doc = """Radius of wheel from center of axle to contact surface with rods.
+        Range: ]0m,+inf[
+        Dimension: distance
+        Default Units: m"""
+    )
+}
+
+class PhysicsWheelFrame "PhysicsWheelFrame" (
+    doc = """A wheel frame holds a track joint and wheesets - makes up a model for friction, 
+    brake and motor. Add a PhysicsTrackJoint as child prim in order
+    to establish a connection to a track system. Add some PhysicsWheelset as child prim to 
+    define the maximum drive, braking and friction forces, the track joint can apply. A
+    PhysicsTractionForceCharacteristic helps to shape a model of the engine-gear unit
+    of a rolling stock."""
+)
+{
+    float physics:brake = 0 (
+        displayName = "Brake"
+        doc = """Sets the fraction of the maximum braking to apply in order  
+        to reach a zero velocity.
+        Range: [0,1]
+        Dimension: One"""
+    )
+    string physics:targetVelocity = "0m/s" (
+        displayName = "Target Velocity"
+        doc = """The target velocity along the track a motor aims for.
+        Range: [-inf,+inf]
+        Dimension: distance / time
+        Default Units: km/h"""
+    )
+    float physics:thrust = 0 (
+        displayName = "Thrust"
+        doc = """Sets the fraction of the maximum thrust to apply in 
+        order to reach the target velocity specified by TargetVelocity().
+        Range: [0,1]
+        Dimension: One"""
+    )
+    rel physics:tractionForceCharacteristic (
+        displayName = "Traction Force Characteristic."
+        doc = "Reference to a PhysicsTractionForceCharacteristic"
+    )
+}
+
+class TSTrackSystem "TSTrackSystem"
+(
+	inherits = </Scope>
+	doc = """A track system is a prim that contains any 'TSTrackCollection' prims. It is used to 
+	group track collections and switches together and to provide a reference for track joints 
+    to rail on."""
+){
+    double metersPerUnit = 1.0 (
+		displayName = "Meters Per Unit"
+		doc = """The conversion factor from the units of the TrackCollections' and Tracks' Xform 
+        attributes to meters, when interpreted by the trax library. The trax system works with 
+        fixed units; this is no problem in a single USD file with its 'metersPerUnit' metadata
+        properly set. However, if layers or references are used, the 'metersPerUnit' metadata in a given
+        USD file is no longer respected. The lengthes of USD attributes get reinterpreted by the 
+        'metersPerUnit' metadata of the stage. For religious reasons we don't believe in
+        such a thing as a 'scaled meter', hence we need to carry the proper scaling factor with us.
+		Range: ]0,+inf[
+		Dimension: distance"""
+	)
+}
+
+class TSTrackCollection "TSTrackCollection"
+(
+	inherits = </Xformable>
+	doc = """A track collection is a prim that contains any 'TSTrack' prims. It is used to group 
+	tracks together and to provide a reference for track joints to rail on."""
+){
+
+}
+
+class TSConnectorCollection "TSConnectorCollection"
+(
+	inherits = </Scope>
+	doc = """A connector collection is a prim that contains connectors (i.e. switches). It is used to group 
+	track connectors together."""
+){
+
+}
+
+class TSTrack "TSTrack" (
+    inherits = </Xformable>
+    doc = """Describes a track for a track joint to ride on. A track's geometry is defined by 
+    a curve, a twist and a general transforamtion. The latter is define by the xformOp operations.
+    The track specifies for it's ends to be connected with other track's ends."""
+)
+{
+    rel curve (
+        displayName = "curve"
+        doc = "Reference to a Bezier BasisCurves to define the geometry of the track."
+    )
+    rel endConnection (
+        displayName = "endConnection"
+        doc = "Reference to a TSTrack that should be coupled with the end end of this track."
+    )
+    token endConnectionEndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "endConnectionEndType"
+        doc = "End of referenced TSTrack to couple the end end of this track to."
+    )
+    rel frontConnection (
+        displayName = "frontConnection"
+        doc = "Reference to a TSTrack that should be coupled with the front end of this track."
+    )
+    token frontConnectionEndType = "end" (
+        allowedTokens = ["front", "end"]
+        displayName = "frontConnectionEndType"
+        doc = "End of referenced TSTrack to couple the front end of this track to."
+    )
+    string intervalFar = "+inf" (
+        displayName = "intervalFar"
+        doc = """The location along the curve to end the track with.
+        Range: [-inf,+inf]
+        Dimension: distance
+        Default Units: m"""
+    )
+    string intervalNear = "0m" (
+        displayName = "intervalNear"
+        doc = """The location along the curve to start the track with.
+        Range: ]-inf,+inf[
+        Dimension: distance
+        Default Units: m"""
+    )
+    rel proxyPrim (
+        doc = '''The proxyPrim relationship allows us to link a
+        prim whose purpose is "render" to its (single target)
+        purpose="proxy" prim.  This is entirely optional, but can be
+        useful in several scenarios:
+        
+        - In a pipeline that does pruning (for complexity management)
+        by deactivating prims composed from asset references, when we
+        deactivate a purpose="render" prim, we will be able to discover
+        and additionally deactivate its associated purpose="proxy" prim,
+        so that preview renders reflect the pruning accurately.
+        
+        - DCC importers may be able to make more aggressive optimizations
+        for interactive processing and display if they can discover the proxy
+        for a given render prim.
+        
+        - With a little more work, a Hydra-based application will be able
+        to map a picked proxy prim back to its render geometry for selection.
+
+        \\note It is only valid to author the proxyPrim relationship on
+        prims whose purpose is "render".'''
+    )
+    uniform token purpose = "default" (
+        allowedTokens = ["default", "render", "proxy", "guide"]
+        doc = """Purpose is a classification of geometry into categories that 
+        can each be independently included or excluded from traversals of prims 
+        on a stage, such as rendering or bounding-box computation traversals.
+
+        See for more detail about how 
+        purpose is computed and used."""
+    )
+    rel trackBody (
+        displayName = "trackBody"
+        doc = "Reference to a physics and mass enabled body. This track will move with the body in the simulation."
+    )
+    token visibility = "inherited" (
+        allowedTokens = ["inherited", "invisible"]
+        doc = '''Visibility is meant to be the simplest form of "pruning" 
+        visibility that is supported by most DCC apps.  Visibility is 
+        animatable, allowing a sub-tree of geometry to be present for some 
+        segment of a shot, and absent from others; unlike the action of 
+        deactivating geometry prims, invisible geometry is still 
+        available for inspection, for positioning, for defining volumes, etc.'''
+    )
+    uniform token[] xformOpOrder (
+        doc = """Encodes the sequence of transformation operations in the
+        order in which they should be pushed onto a transform stack while
+        visiting a UsdStage's prims in a graph traversal that will effect
+        the desired positioning for this prim and its descendant prims.
+        
+        You should rarely, if ever, need to manipulate this attribute directly.
+        It is managed by the AddXformOp(), SetResetXformStack(), and
+        SetXformOpOrder(), and consulted by GetOrderedXformOps() and
+        GetLocalTransformation()."""
+    )
+}
+
+class TS2WaySwitch "TS2WaySwitch" (
+	inherits = </Typed>
+    doc = "A two way switch reconnects three track ends according to the switches state."
+)
+{
+    rel divergingTrack (
+        displayName = "divergingTrack"
+        doc = "The track to connect with the incomming track at state 'branch'."
+    )
+    token divergingTrackEndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "divergingTrackEndType"
+        doc = "The end of the diverging track to connect."
+    )
+    int id = 0 (
+        displayName = "id"
+        doc = """A unique id for sthe switch, to reference it. If 0, the switch gets assigned an id automatically.
+        Range: [0,+inf["""
+    )
+    rel narrowTrack (
+        displayName = "narrowTrack"
+        doc = "Reference to the incoming track of the switch."
+    )
+    token narrowTrackEndType = "end" (
+        allowedTokens = ["front", "end"]
+        displayName = "narrowTrackEndType"
+        doc = "End of the incoming track to connect."
+    )
+    token state = "go" (
+        allowedTokens = ["go", "branch"]
+        displayName = "state"
+        doc = "The state of the switch."
+    )
+    rel straightTrack (
+        displayName = "straightTrack"
+        doc = "The track to connect with the incomming track at state 'go'."
+    )
+    token straightTrackEndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "straightTrackEndType"
+        doc = "The end of the straight track to connect."
+    )
+}
+
+class TS3WaySwitch "TS3WaySwitch" (
+	inherits = </Typed>
+    doc = "A three way switch reconnects four track ends according to the switches state."
+)
+{
+    rel divergingTrack1 (
+        displayName = "divergingTrack1"
+        doc = "The track to connect with the incomming track at state 'branch1'."
+    )
+    token divergingTrack1EndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "divergingTrack1EndType"
+        doc = "The end of the diverging track1 to connect."
+    )
+    rel divergingTrack2 (
+        displayName = "divergingTrack2"
+        doc = "The track to connect with the incomming track at state 'branch2'."
+    )
+    token divergingTrack2EndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "divergingTrack2EndType"
+        doc = "The end of the diverging track2 to connect."
+    )
+    int id = 0 (
+        displayName = "id"
+        doc = """A unique id for sthe switch, to reference it. If 0, the switch gets assigned an id automatically.
+        Range: [0,+inf["""
+    )
+    rel narrowTrack (
+        displayName = "narrowTrack"
+        doc = "Reference to the incoming track of the switch."
+    )
+    token narrowTrackEndType = "end" (
+        allowedTokens = ["front", "end"]
+        displayName = "narrowTrackEndType"
+        doc = "End of the incoming track to connect."
+    )
+    token state = "go" (
+        allowedTokens = ["go", "branch", "branch1", "branch2"]
+        displayName = "state"
+        doc = "The state of the switch."
+    )
+    rel straightTrack (
+        displayName = "straightTrack"
+        doc = "The track to connect with the incomming track at state 'go'."
+    )
+    token straightTrackEndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "straightTrackEndType"
+        doc = "The end of the straight track to connect."
+    )
+}
+
+class TS1SlipSwitch "TS1SlipSwitch" (
+	inherits = </Typed>
+    doc = """A single slip switch consisting of two incoming '','/' and two outgoing tracks 'X' - the outgoing tracks are expected
+    to cross each other - and a diverging track ')'.
+    
+    \
+    )X
+    / 
+    
+    """
+)
+{
+    int id = 0 (
+        displayName = "id"
+        doc = """A unique id for sthe switch, to reference it. If 0, the switch gets assigned an id automatically.
+        Range: [0,+inf["""
+    )
+    rel incomingTrack1 (
+        displayName = "incomingTrack1"
+        doc = "Reference to first incoming track."
+    )
+    token incomingTrack1EndType = "end" (
+        allowedTokens = ["front", "end"]
+        displayName = "incomingTrack1EndType"
+        doc = "End of track referenced for first incoming track."
+    )
+    rel incomingTrack2 (
+        displayName = "incomingTrack2"
+        doc = "Reference to second incoming track."
+    )
+    token incomingTrack2EndType = "end" (
+        allowedTokens = ["front", "end"]
+        displayName = "incomingTrack2EndType"
+        doc = "End of track referenced for second incoming track."
+    )
+    rel outgoingTrack1 (
+        displayName = "outgoingTrack1"
+        doc = "Reference to first outgoing track."
+    )
+    token outgoingTrack1EndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "outgoingTrack1EndType"
+        doc = "End of track referenced for first outgoing track."
+    )
+    rel outgoingTrack2 (
+        displayName = "outgoingTrack2"
+        doc = "Reference to second outgoing track."
+    )
+    token outgoingTrack2EndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "outgoingTrack2EndType"
+        doc = "End of track referenced for second outgoing track."
+    )
+    token state = "go" (
+        allowedTokens = ["go", "branch"]
+        displayName = "state"
+        doc = "The state of the switch."
+    )
+    rel track1Diverge (
+        displayName = "track1Diverge"
+        doc = "Reference to first diverging track."
+    )
+    token track1DivergeIncomingEndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "track1DivergeIncomingEndType"
+        doc = "End of track referenced for first diverging track."
+    )
+}
+
+class TS2SlipSwitch "TS2SlipSwitch" (
+	inherits = </Typed>
+    doc = """A double slip switch consisting of two straight tracks 'X', crossing each other; two incoming tracks, two outgoing tracks
+    - all four connecting to the straight track ends - and two diverging tracks ')' and '(', connecting incoming and outgoing tracks:
+    
+    \ /
+    )X(
+    / \
+    
+    """
+)
+{
+    int id = 0 (
+        displayName = "id"
+        doc = """A unique id for sthe switch, to reference it. If 0, the switch gets assigned an id automatically.
+        Range: [0,+inf["""
+    )
+    rel incomingTrack1 (
+        displayName = "incomingTrack1"
+        doc = "Reference to first incoming track."
+    )
+    token incomingTrack1EndType = "end" (
+        allowedTokens = ["front", "end"]
+        displayName = "incomingTrack1EndType"
+        doc = "End of track referenced for first incoming track."
+    )
+    rel incomingTrack2 (
+        displayName = "incomingTrack2"
+        doc = "Reference to second incoming track."
+    )
+    token incomingTrack2EndType = "end" (
+        allowedTokens = ["front", "end"]
+        displayName = "incomingTrack2EndType"
+        doc = "End of track referenced for second incoming track."
+    )
+    rel outgoingTrack1 (
+        displayName = "outgoingTrack1"
+        doc = "Reference to first outgoing track."
+    )
+    token outgoingTrack1EndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "outgoingTrack1EndType"
+        doc = "End of track referenced for first outgoing track."
+    )
+    rel outgoingTrack2 (
+        displayName = "outgoingTrack2"
+        doc = "Reference to second outgoing track."
+    )
+    token outgoingTrack2EndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "outgoingTrack2EndType"
+        doc = "End of track referenced for second outgoing track."
+    )
+    token state = "go" (
+        allowedTokens = ["go", "branch"]
+        displayName = "state"
+        doc = "The state of the switch."
+    )
+    rel track1Diverge (
+        displayName = "track1Diverge"
+        doc = "Reference to first diverging track."
+    )
+    token track1DivergeIncomingEndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "track1DivergeIncomingEndType"
+        doc = "End of track referenced for first diverging track."
+    )
+    rel track1Straight (
+        displayName = "track1Straight"
+        doc = "Reference to first straight track."
+    )
+    token track1StraightIncomingEndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "track1StraightIncomingEndType"
+        doc = "End of track referenced for first straight track."
+    )
+    rel track2Diverge (
+        displayName = "track2Diverge"
+        doc = "Reference to second diverging track."
+    )
+    token track2DivergeIncomingEndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "track2DivergeIncomingEndType"
+        doc = "End of track referenced for second diverging track."
+    )
+    rel track2Straight (
+        displayName = "track2Straight"
+        doc = "Reference to second straight track."
+    )
+    token track2StraightIncomingEndType = "front" (
+        allowedTokens = ["front", "end"]
+        displayName = "track2StraightIncomingEndType"
+        doc = "End of track referenced for second straight track."
+    )
+}
+
+

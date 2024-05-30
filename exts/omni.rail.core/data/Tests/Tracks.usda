@@ -1,0 +1,603 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (50750.000000000015, -1.1268763699945339e-11, 0)
+                double radius = 500
+            }
+            dictionary Perspective = {
+                double3 position = (-1386.4389469916969, 1509.1474535678117, 710.8105634472786)
+                double3 target = (283.27467348360847, -265.46187814213886, 5.122177036592802)
+            }
+            dictionary Right = {
+                double3 position = (0, -50750, -1.1268763699945339e-11)
+                double radius = 500
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 50512.5)
+                double radius = 500
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./Tracks.usda"
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            float3 "rtx:index:regionOfInterestMax" = (0, 0, 0)
+            float3 "rtx:index:regionOfInterestMin" = (0, 0, 0)
+            float3 "rtx:iray:environment_dome_ground_position" = (0, 0, 0)
+            float3 "rtx:iray:environment_dome_ground_reflectivity" = (0, 0, 0)
+            float3 "rtx:iray:environment_dome_rotation_axis" = (3.4028235e38, 3.4028235e38, 3.4028235e38)
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def PhysicsScene "physicsScene"
+    {
+        vector3f physics:gravityDirection = (0, 0, -1)
+        float physics:gravityMagnitude = 981
+    }
+
+    def Mesh "groundPlane" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCookedDataAPI:triangleMesh"]
+    )
+    {
+        uniform bool doubleSided = 0
+        int[] faceVertexCounts = [4]
+        int[] faceVertexIndices = [0, 1, 2, 3]
+        normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1)]
+        uchar[] physxCookedData:triangleMesh:buffer = [7, 199, 196, 226, 132, 250, 121, 242, 67, 76, 218, 222, 197, 146, 114, 24, 228, 78, 88, 83, 1, 77, 69, 83, 72, 16, 0, 0, 0, 1, 0, 0, 0, 182, 1, 0, 0, 4, 0, 0, 0, 2, 0, 0, 0, 0, 128, 59, 196, 0, 128, 59, 196, 0, 0, 0, 0, 0, 128, 59, 68, 0, 128, 59, 196, 0, 0, 0, 0, 0, 128, 59, 68, 0, 128, 59, 68, 0, 0, 0, 0, 0, 128, 59, 196, 0, 128, 59, 68, 0, 0, 0, 0, 0, 1, 2, 0, 2, 3, 1, 0, 0, 0, 0, 1, 255, 255, 255, 255, 255, 255, 255, 255, 1, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 66, 86, 52, 32, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 149, 132, 68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 59, 57, 0, 128, 59, 196, 0, 128, 59, 196, 0, 0, 0, 0, 0, 128, 59, 68, 0, 128, 59, 68, 0, 0, 0, 0, 2, 0, 0, 0, 24, 48, 0, 1, 2, 0, 2, 3, 255, 255, 255, 255, 255, 255, 255, 255, 1, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 66, 86, 51, 50, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 149, 132, 68, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 5, 0, 0, 0, 0, 128, 59, 196, 0, 128, 59, 196, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 59, 68, 0, 128, 59, 68, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]
+        point3f[] points = [(-750, -750, 0), (750, -750, 0), (750, 750, 0), (-750, 750, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.5, 0.5)]
+        texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+            interpolation = "varying"
+        )
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def PhysicsTracktionForceCharacteristic "Characteristic"
+    {
+        float2[] physics:speedSteps = [(0, 1), (10, 0.33), (20, 0.25), (40, 0)]
+    }
+
+    def Cube "Locomotive" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        color3f[] primvars:displayColor = [(0.2784314, 0.4117647, 0.3)]
+        double size = 100
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (10, 1.5, 1)
+        double3 xformOp:translate = (-480, -10, 220)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Bogie0" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        vector3f physics:angularVelocity = (0, 0, 0)
+        color3f[] primvars:displayColor = [(0.2784314, 0.4117647, 1)]
+        double size = 100
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (2, 1, 1)
+        double3 xformOp:translate = (-880, -10, 100)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def PhysicsSphericalJoint "Hinge"
+        {
+            uniform token physics:axis = "Z"
+            rel physics:body0 = </World/Locomotive>
+            rel physics:body1 = </World/Bogie0>
+            float physics:breakForce = inf
+            float physics:breakTorque = inf
+            float physics:coneAngle0Limit = 0.1
+            float physics:coneAngle1Limit = 30
+            point3f physics:localPos0 = (-40, 0, -120)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsTrackJoint "trackJoint"
+        {
+            rel physics:body0 = </World/Bogie0>
+            bool physics:collisionEnabled = 0
+            point3f physics:localPos0 = (0, 0, -75)
+            point3f physics:localPos1 = (0, 0, 0)
+            string physics:normalTorqueLimit = "1000kNm"
+            string physics:thresholdPosition = "35cm"
+            float physics:thresholdTangent = 30
+            string physics:torqueLimit = "500kNm"
+            rel physics:trackSystem = </World/TrackSystem>
+        }
+    }
+
+    def Cube "Bogie1" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        color3f[] primvars:displayColor = [(0.2784314, 0.4117647, 0.3)]
+        double size = 100
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (2, 1, 1)
+        double3 xformOp:translate = (-80, -10, 100)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def PhysicsSphericalJoint "Hinge"
+        {
+            uniform token physics:axis = "Z"
+            rel physics:body0 = </World/Locomotive>
+            rel physics:body1 = </World/Bogie1>
+            float physics:breakForce = inf
+            float physics:breakTorque = inf
+            float physics:coneAngle0Limit = 0.1
+            float physics:coneAngle1Limit = 30
+            point3f physics:localPos0 = (40, 0, -120)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsWheelFrame "wheelFrame"
+        {
+            float physics:brake = 0
+            string physics:targetVelocity = "0m/s"
+            float physics:thrust = 0
+            rel physics:tracktionForceCharacteristic = </World/Characteristic>
+
+            def PhysicsTrackJoint "trackJoint"
+            {
+                rel physics:body0 = </World/Bogie1>
+                bool physics:collisionEnabled = 0
+                point3f physics:localPos0 = (0, 0, -75)
+                point3f physics:localPos1 = (0, 0, 0)
+                string physics:normalTorqueLimit = "1000kNm"
+                string physics:thresholdPosition = "30cm"
+                float physics:thresholdTangent = 30
+                string physics:torqueLimit = "500kNm"
+                rel physics:trackSystem = </World/TrackSystem>
+            }
+
+            def PhysicsWheelset "axle0"
+            {
+                string physics:frictionTorque = "10Nm"
+                string physics:maxBrakingTorque = "20kNm"
+                string physics:maxMotorTorque = "100kNm"
+                string physics:radius = "1m"
+            }
+
+            def PhysicsWheelset "axle1"
+            {
+                string physics:frictionTorque = "10Nm"
+                string physics:maxBrakingTorque = "20kNm"
+                string physics:maxMotorTorque = "100kNm"
+                string physics:radius = "1m"
+            }
+        }
+    }
+
+    def Scope "TrackSystem"
+    {
+        def TSTrack "Track_BasisCurves"
+        {
+            custom rel curve
+            prepend rel curve = </World/BasisCurves>
+            custom bool enabled = 1
+            custom rel endConnection = </World/TrackSystem/Track_BasisCurves_02>
+            custom token endConnectionEndType = "front"
+        }
+
+        def TSTrack "Track_BasisCurves_02"
+        {
+            custom rel curve
+            prepend rel curve = </World/BasisCurves_02>
+            custom bool enabled = 1
+            custom rel frontConnection = </World/TrackSystem/Track_BasisCurves>
+            custom token frontConnectionEndType = "end"
+        }
+
+        def TSTrack "Track_BasisCurves_01"
+        {
+            custom rel curve
+            prepend rel curve = </World/BasisCurves_01>
+            custom bool enabled = 1
+            custom rel endConnection = </World/TrackSystem/Track_BasisCurves_03>
+            custom token endConnectionEndType = "front"
+        }
+
+        def TSTrack "Track_BasisCurves_03"
+        {
+            custom rel curve
+            prepend rel curve = </World/BasisCurves_03>
+            custom bool enabled = 1
+            prepend rel frontConnection = </World/TrackSystem/Track_BasisCurves_01>
+            custom token frontConnectionEndType = "end"
+        }
+
+        def TSTrack "Track_In1"
+        {
+            custom rel curve
+            prepend rel curve = </World/In1>
+            custom bool enabled = 1
+            custom rel endConnection
+            custom token endConnectionEndType
+            custom rel frontConnection
+            custom token frontConnectionEndType
+        }
+
+        def TSTrack "Track_In2"
+        {
+            custom rel curve
+            prepend rel curve = </World/In2>
+            custom bool enabled = 1
+            custom rel endConnection
+            custom token endConnectionEndType
+            custom rel frontConnection
+            custom token frontConnectionEndType
+        }
+
+        def TSTrack "Track_Out1"
+        {
+            custom rel curve
+            prepend rel curve = </World/Out1>
+            custom bool enabled = 1
+            custom rel endConnection
+            custom token endConnectionEndType
+            custom rel frontConnection
+            custom token frontConnectionEndType
+        }
+
+        def TSTrack "Track_Out2"
+        {
+            custom rel curve
+            prepend rel curve = </World/Out2>
+            custom bool enabled = 1
+            custom rel endConnection
+            custom token endConnectionEndType
+            custom rel frontConnection
+            custom token frontConnectionEndType
+        }
+
+        def TSTrack "Track_Straight1"
+        {
+            custom rel curve
+            prepend rel curve = </World/Straight1>
+            custom bool enabled = 1
+            custom rel endConnection
+            custom token endConnectionEndType
+            custom rel frontConnection
+            custom token frontConnectionEndType
+        }
+
+        def TSTrack "Track_Straight2"
+        {
+            custom rel curve
+            prepend rel curve = </World/Straight2>
+            custom bool enabled = 1
+            custom rel endConnection
+            custom token endConnectionEndType
+            custom rel frontConnection
+            custom token frontConnectionEndType
+        }
+
+        def TSTrack "Track_Diverge2"
+        {
+            custom rel curve
+            prepend rel curve = </World/Diverge2>
+            custom bool enabled = 1
+            custom rel endConnection
+            custom token endConnectionEndType
+            custom rel frontConnection
+            custom token frontConnectionEndType
+        }
+
+        def TSTrack "Track_Diverge1"
+        {
+            custom rel curve
+            prepend rel curve = </World/Diverge1>
+            custom bool enabled = 1
+            custom rel endConnection
+            custom token endConnectionEndType
+            custom rel frontConnection
+            custom token frontConnectionEndType
+        }
+
+        def Scope "Switches"
+        {
+            def TS2WaySwitch "TS2WaySwitch"
+            {
+                custom rel divergingTrack
+                prepend rel divergingTrack = </World/TrackSystem/Track_BasisCurves_01>
+                custom token divergingTrackEndType = "front"
+                custom bool enabled = 1
+                custom rel narrowTrack
+                prepend rel narrowTrack = </World/TrackSystem/Track_BasisCurves>
+                custom token narrowTrackEndType = "end"
+                custom token state = "go"
+                custom rel straightTrack
+                prepend rel straightTrack = </World/TrackSystem/Track_BasisCurves_02>
+                custom token straightTrackEndType = "front"
+            }
+
+            def TS2SlipSwitch "TS2SlipSwitch"
+            {
+                custom bool enabled = 1
+                custom rel incomingTrack1
+                prepend rel incomingTrack1 = </World/TrackSystem/Track_In1>
+                custom token incomingTrack1EndType = "end"
+                custom rel incomingTrack2
+                delete rel incomingTrack2 = </World/In2>
+                prepend rel incomingTrack2 = </World/TrackSystem/Track_In2>
+                custom token incomingTrack2EndType = "end"
+                custom rel outgoingTrack1
+                delete rel outgoingTrack1 = </World/TrackSystem/Track_In2>
+                prepend rel outgoingTrack1 = </World/TrackSystem/Track_Out1>
+                custom token outgoingTrack1EndType = "front"
+                custom rel outgoingTrack2
+                prepend rel outgoingTrack2 = </World/TrackSystem/Track_Out2>
+                custom token outgoingTrack2EndType = "front"
+                custom token state = "go1"
+                custom rel track1Diverge
+                prepend rel track1Diverge = </World/TrackSystem/Track_Diverge1>
+                custom token track1DivergeIncomingEndType = "front"
+                custom rel track1Straight
+                prepend rel track1Straight = </World/TrackSystem/Track_Straight1>
+                custom token track1StraightIncomingEndType = "front"
+                custom rel track2Diverge
+                prepend rel track2Diverge = </World/TrackSystem/Track_Diverge2>
+                custom token track2DivergeIncomingEndType = "front"
+                custom rel track2Straight
+                prepend rel track2Straight = </World/TrackSystem/Track_Straight2>
+                custom token track2StraightIncomingEndType = "front"
+            }
+        }
+    }
+
+    def BasisCurves "BasisCurves"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [7]
+        float3[] extent = [(-3743.3284, -0.0009765625, 760.80273), (-2139.5234, 0, 1786.4775)]
+        point3f[] points = [(-3743.3284, -0.00048828125, 1733.1226), (-3566.262, 0, 1136.2363), (-3111.4895, 0, 1786.4775), (-2945.9194, 0, 1273.6401), (-2780.3494, 0, 760.80273), (-2232.272, -0.0009765625, 1278.3413), (-2139.5234, -0.00048828125, 800.70605)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (10, 10, 10)
+        double3 xformOp:translate = (25000, -10250, 50)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "BasisCurves_02"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [7]
+        float3[] extent = [(-2139.5234, -0.00048828125, 450.1184), (-1860.4719, 0, 800.70605)]
+        point3f[] points = [(-2139.5234, -0.00048828125, 800.70605), (-2107.4263, 0, 638.66296), (-1999.669, 0, 734.8684), (-2000.0231, 0, 637.287), (-2000.3772, 0, 539.70557), (-1860.4719, 0, 536.26013), (-1862.2062, 0, 450.1184)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        token visibility = "inherited"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (10, 10, 10)
+        double3 xformOp:translate = (25000, -10250, 50)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "BasisCurves_01"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [4]
+        float3[] extent = [(-2139.5234, -0.0005039131, 754.5069), (-2089.0864, 0, 800.70605)]
+        point3f[] points = [(-2139.5234, -0.00048828125, 800.70605), (-2129.662, -0.0005039131, 780.3526), (-2100.8354, 0, 773.446), (-2089.0864, -5.684342e-14, 754.5069)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (10, 10, 10)
+        double3 xformOp:translate = (25000, -10250, 50)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "BasisCurves_03"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [13]
+        float3[] extent = [(-2089.0864, -8.526513e-13, 725.5029), (-1954.5643, 8.526513e-13, 756.0931)]
+        point3f[] points = [(-2089.0864, -5.684342e-14, 754.5069), (-2089.0864, -5.684342e-14, 754.5069), (-2078.1858, -2.842171e-14, 742.10706), (-2066.211, 0, 746.258), (-2054.236, 2.842171e-14, 750.40894), (-2043.5366, 8.526513e-13, 756.0931), (-2030.2283, 0, 750.213), (-2016.9199, -8.526513e-13, 744.33295), (-2006.8002, 0, 736.5596), (-1995.576, 0, 734.1068), (-1984.3519, 0, 731.65405), (-1970.0166, 0, 726.8775), (-1954.5643, 0, 725.5029)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (10, 10, 10)
+        double3 xformOp:translate = (25000, -10250, 50)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "In1"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [4]
+        float3[] extent = [(302.143, 0, 133.9721), (2154.1978, 0, 843.04395)]
+        point3f[] points = [(2154.1978, 0, 843.04395), (1184.0737, 0, 352.90213), (981.5562, 0, 421.5221), (302.143, 0, 133.9721)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, -1000, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "In2"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [4]
+        float3[] extent = [(292.34375, 0, -686.1986), (2170.5298, 0, -75.15507)]
+        point3f[] points = [(2170.5298, 0, -686.1986), (1739.3636, 0, -532.6208), (961.95795, 0, -313.69092), (292.34375, 0, -75.15507)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, -1000, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "Out1"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [4]
+        float3[] extent = [(-1197.1395, 0, -424.7896), (-223.74913, 0, -94.760765)]
+        point3f[] points = [(-223.74913, 0, -94.760765), (-769.2397, 0, -382.31064), (-625.5178, 0, -232.00049), (-1197.1395, 0, -424.7896)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, -1000, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "Out2"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [4]
+        float3[] extent = [(-1700.1667, 0, 143.77495), (-200.88426, 0, 849.5792)]
+        point3f[] points = [(-200.88426, 0, 143.77495), (-899.8961, 0, 457.46573), (-1236.3364, 0, 388.84583), (-1700.1667, 0, 849.5792)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, -1000, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "Straight1"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [4]
+        float3[] extent = [(-223.74913, 0, -94.760765), (302.143, 0, 133.9721)]
+        point3f[] points = [(302.143, 0, 133.9721), (8.166026, 0, 9.802837), (-3.823639, 0, 15.271484), (-223.74913, 0, -94.760765)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        token visibility = "inherited"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, -1000, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "Straight2"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [4]
+        float3[] extent = [(-200.88426, 0, -75.15507), (292.34375, 9.313226e-10, 143.77495)]
+        point3f[] points = [(292.34375, 0, -75.15507), (-1.3483849, 0, 8.974502), (58.340675, 9.313226e-10, 36.20665), (-200.88426, 0, 143.77495)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        token visibility = "inherited"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, -1000, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "Diverge2"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [4]
+        float3[] extent = [(-223.74913, 0, -94.760765), (292.34375, 0, -16.835058)]
+        point3f[] points = [(292.34375, 0, -75.15507), (99.36688, 0, -16.835058), (-116.95322, 0, -39.589325), (-223.74913, 0, -94.760765)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        token visibility = "inherited"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, -1000, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "Diverge1"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [4]
+        float3[] extent = [(-201.29298, 0, 86.289185), (302.143, 0, 143.95834)]
+        point3f[] points = [(302.143, 0, 133.9721), (166.85123, 0, 86.289185), (-78.3504, 0, 91.05737), (-201.29298, 0, 143.95834)]
+        uniform token purpose = "default"
+        custom bool scene_visualization:drawWireframe = 1
+        uniform token type = "cubic"
+        token visibility = "inherited"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, -1000, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def DomeLight "DomeLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 1000
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
+        token inputs:texture:format = "latlong"
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+}
+
