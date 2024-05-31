@@ -76,8 +76,8 @@ by clicking the checkbox.
 
 It should look like this:
 
-<a href="./Images/ActivatingExtensions.png">
-<img src="./Images/ActivatingExtensions.png" title="Find and enable these 
+<a href="./images/ActivatingExtensions.png">
+<img src="./images/ActivatingExtensions.png" title="Find and enable these 
 extensions." alt="Enable omni.rail.core and omni.usd.schema.rail.core." 
 width="500px">
 </a>
@@ -94,8 +94,8 @@ the functionality.
 - Load the 'TestTrain.usda' file by double clicking it.
 - From the toolbar to the left hit 'Play' to start the simulation.
 
-<a href="./Images/CoupledTrain.png">
-<img src="./Images/CoupledTrain.png" title="Train" alt="A train starting to run." 
+<a href="./images/CoupledTrain.png">
+<img src="./images/CoupledTrain.png" title="Train" alt="A train starting to run." 
 width="500px">
 </a>
 
