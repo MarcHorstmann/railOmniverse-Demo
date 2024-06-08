@@ -6,19 +6,12 @@ authors = ["Trend Redaktions- und Verlagsgesellschaft mbH <horstmann.marc@trendv
 category = "simulation"
 feature = false
 app = false
-repository="https://www.trendverlag.com"
+repository="https://github.com/MarcHorstmann/railOmniverse-Demo/releases/tag/v0.12.2"
 readme  = "docs/README.md"
 keywords = ["simulation", "physics", "rail", "track", "train"]
 changelog = "docs/CHANGELOG.md"
 preview_image = "data/Thumbnail.jpg"
 icon = "data/PhysXlogo.png"
-
-[package.target]
-config = ["release"]
-kit = ["105.1.0"]
-
-[package.writeTarget]
-kit = true
 
 [dependencies]
 "omni.usd.schema.rail.core" = {}
