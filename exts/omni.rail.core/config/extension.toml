@@ -1,17 +1,24 @@
 [package]
-version = "0.12.0-Demo"
+version = "0.12.2-Demo"
 title = "railOmniverse Extension Demo Version"
 description = "railOmniverse implements a 'trackjoint' for railing things."
 authors = ["Trend Redaktions- und Verlagsgesellschaft mbH <horstmann.marc@trendverlag.de>"]
 category = "simulation"
 feature = false
 app = false
-repository="https://github.com/MarcHorstmann/railOmniverse-Demo.git"
+repository="https://www.trendverlag.com"
 readme  = "docs/README.md"
 keywords = ["simulation", "physics", "rail", "track", "train"]
 changelog = "docs/CHANGELOG.md"
 preview_image = "data/Thumbnail.jpg"
 icon = "data/PhysXlogo.png"
+
+[package.target]
+config = ["release"]
+kit = ["105.1.0"]
+
+[package.writeTarget]
+kit = true
 
 [dependencies]
 "omni.usd.schema.rail.core" = {}
