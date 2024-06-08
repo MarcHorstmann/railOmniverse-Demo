@@ -1,5 +1,5 @@
 [package]
-version = "0.12.2-Demo"
+version = "0.12.2"
 title = "railOmniverse Extension Demo Version"
 description = "railOmniverse implements a 'trackjoint' for railing things."
 authors = ["Trend Redaktions- und Verlagsgesellschaft mbH <horstmann.marc@trendverlag.de>"]
